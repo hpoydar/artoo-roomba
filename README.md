@@ -1,6 +1,6 @@
-# Artoo Adaptor For Roomba
+# Artoo Adaptor For iRobot Create 2
 
-This repository contains the Artoo (http://artoo.io/) adaptor for the iRobot Roomba or Create robots (http://www.irobot.com/About-iRobot/STEM.aspx).
+This repository contains the Artoo (http://artoo.io/) adaptor for the iRobot Roomba or Create 2 robots (http://www.irobot.com/About-iRobot/STEM.aspx).
 
 Artoo is a open source micro-framework for robotics using Ruby.
 
@@ -21,7 +21,7 @@ require 'artoo'
 
 connection :roomba, :adaptor => :roomba, :port => '/dev/ttyUSB0'
 device :roomba, :driver => :roomba, :connection => :roomba
-  
+
 work do
   roomba.safe_mode
   roomba.nudge_left
