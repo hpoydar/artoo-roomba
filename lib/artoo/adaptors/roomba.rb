@@ -12,8 +12,8 @@ module Artoo
       def connect
         if port.is_serial?
           @sp = connect_to_serial
-          @sp.dtr = 0
-          @sp.rts = 0
+          # @sp.dtr = 0
+          # @sp.rts = 0
         else
           @sp = connect_to_tcp
         end
@@ -35,6 +35,13 @@ module Artoo
       def disconnect
         @sp.close
         super
+      end
+
+      def connect_to_serial(speed=115200, data_bits=8)
+        require 'rubyserial'
+        @sp = ::Serial.new(port.port, speed, data_bits)
+      rescue LoadError
+        Logger.error "Please 'gem install rubyserial' for serial port support."
       end
 
     end
